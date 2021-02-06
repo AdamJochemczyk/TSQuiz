@@ -1,5 +1,4 @@
 import './styles/style.scss';
-import './scripts/calculator.ts';
 
 console.log('hello, world');
 
