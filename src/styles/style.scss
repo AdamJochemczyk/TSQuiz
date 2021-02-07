@@ -1,4 +1,67 @@
-@import '/node_modules/normalize.css/normalize.css';
+@import "modules/variables";
+@import "modules/base";
 
-@import 'modules/variables';
-@import 'modules/base'
+body {
+  background-color: var(--nickel);
+}
+.header {
+  background-color: var(--primary);
+  color: var(--secondary);
+  h1 {
+    text-align: center;
+    font-size: 1rem;
+  }
+  margin-bottom: 2rem;
+}
+.startQuizForm {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary);
+  background-color: var(--primary);
+  border-radius: 2.5%;
+  padding: 2%;
+  width: 300px;
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  .formRow {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    label::first-letter{
+        text-transform: uppercase;
+    }
+    select{
+      padding: 2px 5px;
+      color: var(--secondary);
+      background-color: var(--primary);
+    }
+  }
+  input[type="submit"]{
+        background-color: transparent;
+        padding: 10px 15px;
+        color: var(--secondary);
+        border: solid 2px var(--secondary);
+        cursor: pointer;
+    }
+}
+.cta {
+  padding: 10px 15px;
+  border: solid 2px var(--secondary);
+  font-size: 1rem;
+}
+.footer {
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: var(--primary);
+  color: var(--secondary);
+  width: 100%;
+}

@@ -46,26 +46,25 @@ export class QuestionApi{
     getQuestionType(){
         return this.type;
     }
-    requestForSessionToken(){
+    async requestForSessionToken(){
         let token="0";
-        axios.get("https://opentdb.com/api_token.php?command=request").then((response:AxiosResponse)=>{
+        await axios.get("https://opentdb.com/api_token.php?command=request").then((response:AxiosResponse)=>{
             token=response.data.token
         }).catch(error=>console.log(error))
         return token;
     }
-    setSessionToken(){
-        this.token= this.requestForSessionToken();
+    async setSessionToken(){
+        this.token=await this.requestForSessionToken();
     }
     getSessionToken(){
         return this.token;
     }
 
-    constructor(amount=10,categoryId=0,difficulty=questionDifficulty.all,type=questionType.all){
+    constructor(amount=5,categoryId=0,difficulty=questionDifficulty.all,type=questionType.all){
         this.setAmount(amount)
         this.categoryId=categoryId;
         this.difficulty=difficulty;
         this.type=type;
-        this.setSessionToken()
     }
 
     getAllCategories(){
@@ -80,6 +79,13 @@ export class QuestionApi{
             return response.data
         }).catch(error=>console.log(error))
     }
+
+    getQuestionForCategory(id:number){
+        axios.get(`https://opentdb.com/api_count.php?category=${id}`).then((response:AxiosResponse)=>{
+            return response.data
+        }).catch(error=>console.log(error))
+    }
+
     private constructRequestString(){
         let request=`${this.baseUrl}amount=${this.amount}`;
         if(this.categoryId!==0) request+=`&category=${this.categoryId}`;
