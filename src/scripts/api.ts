@@ -12,7 +12,6 @@ export enum questionType{
     multiple="multiple",
     boolean="boolean"
 }
-
 export class QuestionApi{
 
     private amount?:number;
@@ -67,23 +66,25 @@ export class QuestionApi{
         this.type=type;
     }
 
-    getAllCategories(){
-        axios.get("https://opentdb.com/api_category.php").then((response:AxiosResponse)=>{
-            console.log(response.data.trivia_categories)
+    async getAllCategories(){
+        const response:AxiosResponse=await axios.get("https://opentdb.com/api_category.php").then((response:AxiosResponse)=>{
             return response.data.trivia_categories
         }).catch(error=>console.log(error))
+        return response;
     }
 
-    getAllQuestionsData(){
-        axios.get("https://opentdb.com/api_count_global.php").then((response:AxiosResponse)=>{
+    async getAllQuestionsData(){
+        const response:AxiosResponse= await axios.get("https://opentdb.com/api_count_global.php").then((response:AxiosResponse)=>{
             return response.data
         }).catch(error=>console.log(error))
+        return response;
     }
 
-    getQuestionForCategory(id:number){
-        axios.get(`https://opentdb.com/api_count.php?category=${id}`).then((response:AxiosResponse)=>{
-            return response.data
+    async getQuestionForCategory(id:number){
+        const response:AxiosResponse= await axios.get(`https://opentdb.com/api_count.php?category=${id}`).then((response:AxiosResponse)=>{
+            return response.data.category_question_count
         }).catch(error=>console.log(error))
+        return response;
     }
 
     private constructRequestString(){

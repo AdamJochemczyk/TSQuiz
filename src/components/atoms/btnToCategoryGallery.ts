@@ -1,16 +1,9 @@
-import {categoryGalleryElement} from './categoryGalleryElement'
-const generateCategoryGallery=()=>{
-    /*
-        on click choose category show all categories in grid
-    */
-   //fetch data form API
-   //generate items on it
-   //remove on choose
-}
+import {generateCategoryGallery} from '../categoryGallery';
 
-const showCategoryGallery=()=>{
+const showCategoryGallery=async ()=>{
     (<HTMLElement>document.querySelector('.startQuizForm')).style.display='none';
-    generateCategoryGallery();
+    const gallery= await generateCategoryGallery();
+    document.body.appendChild(gallery);
 }
 
 export const btnToCategoryGallery=()=>{

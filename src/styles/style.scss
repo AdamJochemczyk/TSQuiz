@@ -55,6 +55,20 @@ body {
   border: solid 2px var(--secondary);
   font-size: 1rem;
 }
+.gallery{
+  display: grid;
+  grid-auto-columns: 300px;
+  grid-auto-rows: 300px;
+  grid-gap: 1rem;
+  justify-content: center;
+  &__item{
+    padding: 2%;
+    text-align: center;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 2%;
+  }
+}
 .footer {
   font-size: 1rem;
   position: fixed;
