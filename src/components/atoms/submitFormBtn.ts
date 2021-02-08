@@ -1,6 +1,6 @@
 const setQuizParams=()=>{
     sessionStorage.setItem("quizDifficulty",(<HTMLInputElement>document.querySelector("select[name='difficulty']")).value)
-        sessionStorage.setItem("quizType",(<HTMLInputElement>document.querySelector("select[name='type']")).value);
+    sessionStorage.setItem("quizType",(<HTMLInputElement>document.querySelector("select[name='type']")).value);
 }
 
 export const submitFormBtn = ()=>{

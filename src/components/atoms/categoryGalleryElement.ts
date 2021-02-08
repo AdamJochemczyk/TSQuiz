@@ -1,4 +1,5 @@
 import { QuestionApi } from "../../scripts/api";
+import {questionsByDifficulty} from './questionsByDifficulty';
 
 const extractQuestionsData=(data:Object)=>{
     const totalQuestions:number=Object(data)["total_question_count"]
@@ -13,15 +14,15 @@ const getCategoryData=async (id:number)=>{
     const data=await api.getQuestionForCategory(id);
     return extractQuestionsData(data);
 }
-const questionsData=(name:string,value:number)=>{
-    const node=document.createElement('div');
-    const title=document.createElement('p')
-    title.textContent=`${name}`
-    const count=document.createElement('p')
-    count.textContent=`${value}`;
-    node.appendChild(title);
-    node.appendChild(count);
-    return node;
+
+const handleClick=(e:MouseEvent)=>{
+    console.log(e.target);
+    const target=e.target as HTMLElement;
+    const parent=target.parentNode;
+    const id=parent.querySelector('h2').dataset.id;
+    sessionStorage.setItem('categoryId',id);
+    (<HTMLElement>document.querySelector('.startQuizForm')).style.display='flex';
+    document.body.removeChild(document.querySelector('.gallery'))
 }
 
 export const categoryGalleryElement =async (id:number,name:string)=>{
@@ -33,15 +34,14 @@ export const categoryGalleryElement =async (id:number,name:string)=>{
     const {totalQuestions,easyQuestions,mediumQuestions,hardQuestions}:{totalQuestions:number,easyQuestions:number,mediumQuestions:number,hardQuestions:number}=await getCategoryData(id);
     const total=document.createElement('p')
     total.textContent=`Total: ${totalQuestions}`;
+    total.classList.add('gallery__total')
     node.appendChild(title);
     node.appendChild(total)
-    node.appendChild(questionsData("Easy:",easyQuestions))
-    node.appendChild(questionsData("Medium:",mediumQuestions))
-    node.appendChild(questionsData("Hard:",hardQuestions))
-    //remove on choose
-        /*
-        on click choose category show all categories in grid
-         (<HTMLElement>document.querySelector('.startQuizForm')).style.display='flex';
-    */
+    node.appendChild(questionsByDifficulty(easyQuestions,mediumQuestions,hardQuestions));
+    const btn=document.createElement('a');
+    btn.textContent="Choose me!";
+    btn.classList.add('gallery__cta');
+    btn.addEventListener('click',e=>handleClick(e))
+    node.appendChild(btn);
     return node;
 }

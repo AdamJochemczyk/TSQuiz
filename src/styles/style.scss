@@ -57,9 +57,11 @@ body {
 }
 .gallery{
   display: grid;
+  margin: 2%;
   grid-auto-columns: 300px;
   grid-auto-rows: 300px;
   grid-gap: 1rem;
+  font-weight: 700;
   justify-content: center;
   &__item{
     padding: 2%;
@@ -67,6 +69,36 @@ body {
     background-color: var(--primary);
     color: var(--secondary);
     border-radius: 2%;
+    position: relative;
+  }
+  &__total{
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  &__difficultyContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  &__easy{
+    color: var(--green);
+  }
+  &__medium{
+    color: var(--pumpkin);
+  }
+  &__hard{
+    color: var(--orange);
+  }
+  &__cta{
+    padding: 5px 10px;
+    border: solid 2px var(--secondary);
+    font-size: 1rem;
+    position: absolute;
+    bottom:10px;
+    left: 90px;
   }
 }
 .footer {
@@ -78,4 +110,5 @@ body {
   background-color: var(--primary);
   color: var(--secondary);
   width: 100%;
+  z-index: 1;
 }

@@ -14,8 +14,8 @@ export const generateCategoryGallery=async()=>{
    const node=document.createElement('div')
    node.classList.add('gallery')
    const categories=await getCategoriesData();
-   for(let i=0;i<categories.length;i++){
-       node.appendChild(await categoryGalleryElement(Object(categories[i])["id"],Object(categories[i])["name"]))
-   }
+   const promises=await categories.map(category=>categoryGalleryElement(Object(category)["id"],Object(category)["name"]))
+   const galleryElements=await Promise.all(promises);
+   galleryElements.map(el=>node.appendChild(el))
    return node;
 }
