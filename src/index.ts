@@ -1,8 +1,5 @@
 import './styles/style.scss';
-import './scripts/calculator.ts';
+import {StartQuizForm} from './components/chooseQuiz';
 
-console.log('hello, world');
-
-const testMessage: string = 'TypeScript works';
-
-console.log(testMessage);
+const quizForm=StartQuizForm()
+document.body.appendChild(quizForm)
