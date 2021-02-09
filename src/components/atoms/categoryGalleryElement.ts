@@ -16,7 +16,6 @@ const getCategoryData=async (id:number)=>{
 }
 
 const handleClick=(e:MouseEvent)=>{
-    console.log(e.target);
     const target=e.target as HTMLElement;
     const parent=target.parentNode;
     const id=parent.querySelector('h2').dataset.id;

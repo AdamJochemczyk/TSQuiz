@@ -47,9 +47,9 @@ export class QuestionApi{
     }
     async requestForSessionToken(){
         let token="0";
-        await axios.get("https://opentdb.com/api_token.php?command=request").then((response:AxiosResponse)=>{
-            token=response.data.token
-        }).catch(error=>console.log(error))
+        token=await axios.get("https://opentdb.com/api_token.php?command=request")
+        .then((response:AxiosResponse)=>response.data.token)
+        .catch(error=>console.log(error))
         return token;
     }
     async setSessionToken(){
@@ -67,23 +67,23 @@ export class QuestionApi{
     }
 
     async getAllCategories(){
-        const response:AxiosResponse=await axios.get("https://opentdb.com/api_category.php").then((response:AxiosResponse)=>{
-            return response.data.trivia_categories
-        }).catch(error=>console.log(error))
+        const response:AxiosResponse=await axios.get("https://opentdb.com/api_category.php")
+        .then((response:AxiosResponse)=>response.data.trivia_categories)
+        .catch(error=>console.log(error))
         return response;
     }
 
     async getAllQuestionsData(){
-        const response:AxiosResponse= await axios.get("https://opentdb.com/api_count_global.php").then((response:AxiosResponse)=>{
-            return response.data
-        }).catch(error=>console.log(error))
+        const response:AxiosResponse= await axios.get("https://opentdb.com/api_count_global.php")
+        .then((response:AxiosResponse)=>response.data)
+        .catch(error=>console.log(error))
         return response;
     }
 
     async getQuestionForCategory(id:number){
-        const response:AxiosResponse= await axios.get(`https://opentdb.com/api_count.php?category=${id}`).then((response:AxiosResponse)=>{
-            return response.data.category_question_count
-        }).catch(error=>console.log(error))
+        const response:AxiosResponse= await axios.get(`https://opentdb.com/api_count.php?category=${id}`)
+        .then((response:AxiosResponse)=>response.data.category_question_count)
+        .catch(error=>console.log(error))
         return response;
     }
 
@@ -94,13 +94,14 @@ export class QuestionApi{
             request+=`&difficulty=${this.difficulty}`;
         if(this.type!==questionType.all)
             request+=`&type=${this.type}`
-        if(this.token!=="0")
+        if(this.token!=="0" && this.token!==undefined)
         request+=`&token=${this.token}`
+        console.log(request)
         return request;
     }
-    getQuizQuestions(){
-        axios.get(this.constructRequestString()).then((response:AxiosResponse)=>{
-            return response.data
-        }).catch(error=>console.log(error))
+    async getQuizQuestions(){
+        const response=await axios.get(this.constructRequestString())
+        .then((response:AxiosResponse)=>response.data.results).catch(error=>console.log(error))
+        return response;
     }
 }
