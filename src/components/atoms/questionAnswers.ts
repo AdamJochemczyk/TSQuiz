@@ -25,18 +25,18 @@ export const questionAnswers=(correct:string,incorrect:string[],type:string)=>{
         answers[i].addEventListener("click",(e:MouseEvent)=>playerAnswer(e))
     }
     if(possibleAnswersBtnCount===2){
-        answers[0].textContent=correct;
+        answers[0].innerHTML=correct;
         node.appendChild(answers[0])
-        answers[1].textContent=incorrect[0];
+        answers[1].innerHTML=incorrect[0];
         node.appendChild(answers[1])
     }else{
         const correctAnswerIndex=Math.floor(Math.random()*4)
-        answers[correctAnswerIndex].textContent=correct;
+        answers[correctAnswerIndex].innerHTML=correct;
         const index = answers.indexOf(answers[correctAnswerIndex]);
          node.appendChild(answers[correctAnswerIndex])
         if (index > -1) answers.splice(index, 1);
         for(let i=0;i<answers.length;i++){
-            answers[i].textContent=incorrect[i];
+            answers[i].innerHTML=incorrect[i];
             node.appendChild(answers[i])
         }
     }

@@ -1,6 +1,6 @@
 export const questionDescription=(question:string,difficulty:string)=>{
     const questionDescription=document.createElement('p')
-    questionDescription.textContent=question;
+    questionDescription.innerHTML=question;
     questionDescription.classList.add('duringGame--margin')
     switch (difficulty){
         case "easy":
