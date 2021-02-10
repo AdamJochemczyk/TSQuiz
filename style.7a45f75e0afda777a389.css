@@ -1,0 +1,244 @@
+:root {
+  font-family: 'Open Sans', sans-serif;
+  --primary: #000;
+  --secondary: #fff;
+  --nickel: #706C61;
+  --pumpkin: #FC7A1E;
+  --orange: #F24C00;
+  --green: #679436; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  cursor: pointer; }
+
+body {
+  background-color: var(--nickel); }
+
+.header {
+  background-color: var(--primary);
+  color: var(--secondary);
+  margin-bottom: 2rem; }
+  .header h1 {
+    text-align: center;
+    font-size: 1rem; }
+
+.container {
+  display: flex;
+  justify-content: center; }
+
+.startQuizForm {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary);
+  background-color: var(--primary);
+  border-radius: 2.5%;
+  padding: 2%;
+  width: 300px; }
+  .startQuizForm h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1rem; }
+  .startQuizForm .formRow {
+    width: 200px;
+    display: flex;
+    justify-content: space-between; }
+    .startQuizForm .formRow label::first-letter {
+      text-transform: uppercase; }
+    .startQuizForm .formRow select {
+      padding: 2px 5px;
+      color: var(--secondary);
+      background-color: var(--primary); }
+  .startQuizForm input[type="submit"] {
+    background-color: transparent;
+    padding: 10px 15px;
+    color: var(--secondary);
+    border: solid 2px var(--secondary);
+    cursor: pointer; }
+
+.cta {
+  padding: 10px 15px;
+  border: solid 2px var(--secondary);
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: 1rem; }
+
+.gallery {
+  display: grid;
+  margin: 2%;
+  grid-template-columns: 300px;
+  grid-auto-rows: 300px;
+  grid-gap: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  margin-bottom: 100px; }
+  .gallery__item {
+    padding: 2%;
+    text-align: center;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border-radius: 2%;
+    position: relative; }
+  .gallery__total {
+    font-size: 2rem;
+    margin-top: 1rem; }
+  .gallery__difficultyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 1rem;
+    margin: 1rem 0; }
+  .gallery__easy {
+    color: var(--green); }
+  .gallery__medium {
+    color: var(--pumpkin); }
+  .gallery__hard {
+    color: var(--orange); }
+  .gallery__cta {
+    padding: 5px 10px;
+    border: solid 2px var(--secondary);
+    font-size: 1rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+    position: absolute;
+    bottom: 10px;
+    left: 90px; }
+
+.duringGame {
+  display: grid;
+  grid-template-columns: 300px;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  grid-gap: 1rem;
+  margin-bottom: 80px; }
+  .duringGame__item {
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 2%;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem; }
+  .duringGame--margin {
+    margin-top: 0.5rem; }
+  .duringGame--bottom {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px; }
+  .duringGame__answerBtn {
+    border: solid 1px var(--secondary);
+    padding: 5px 10px;
+    background-color: var(--primary);
+    color: var(--secondary); }
+    .duringGame__answerBtn--clicked {
+      background-color: var(--secondary);
+      color: var(--primary); }
+  .duringGame__finish {
+    padding: 10px 15px;
+    font-weight: 700;
+    border: solid 1px var(--secondary);
+    color: var(--secondary);
+    background-color: var(--primary); }
+
+.finalView {
+  display: grid;
+  grid-template-columns: 300px;
+  justify-content: center;
+  grid-gap: 10px;
+  margin-bottom: 80px; }
+  .finalView__item {
+    text-align: center;
+    padding: 10px;
+    color: var(--secondary);
+    background-color: var(--primary);
+    border-radius: 2%; }
+  .finalView__points {
+    text-align: center;
+    color: var(--secondary);
+    background-color: var(--primary);
+    padding: 5px 10px; }
+  .finalView__btn {
+    padding: 10px 15px;
+    color: var(--secondary);
+    border: solid 1px var(--secondary);
+    background-color: var(--primary); }
+
+.footer {
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: var(--primary);
+  color: var(--secondary);
+  width: 100%;
+  z-index: 1; }
+
+@media (min-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem; }
+  .startQuizForm {
+    gap: 15px;
+    width: 450px; }
+    .startQuizForm h2 {
+      font-size: 1.5rem; }
+    .startQuizForm .formRow {
+      width: 400px;
+      font-size: 1.5rem; }
+      .startQuizForm .formRow select {
+        padding: 5px 8px; }
+    .startQuizForm input[type="submit"] {
+      font-size: 1.5rem; }
+  .cta {
+    font-size: 1.5rem; }
+  .gallery {
+    grid-template-columns: 300px 300px;
+    grid-gap: 1.5rem; }
+    .gallery__total {
+      font-size: 1.5rem; }
+    .gallery__cta {
+      font-size: 1.5rem;
+      left: 75px; }
+  .duringGame {
+    grid-template-columns: 500px;
+    font-size: 1.5rem; }
+    .duringGame__answerBtn {
+      font-size: 1.5rem; }
+    .duringGame__finish {
+      font-size: 1.5rem; }
+  .finalView {
+    grid-template-columns: 500px;
+    font-size: 1.5rem; }
+    .finalView__btn {
+      font-size: 1.5rem; }
+  .footer {
+    font-size: 1.5rem; } }
+
+@media (min-width: 1280px) {
+  .startQuizForm {
+    gap: 15px;
+    width: 600px; }
+    .startQuizForm .formRow {
+      width: 500px; }
+  .gallery {
+    grid-template-columns: 300px 300px 300px 300px; }
+    .gallery__cta {
+      font-size: 1.5rem;
+      left: 75px; }
+  .duringGame {
+    grid-template-columns: 500px; }
+  .finalView {
+    grid-template-columns: 500px; } }
+
