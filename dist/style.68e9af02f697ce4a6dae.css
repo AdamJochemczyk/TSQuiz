@@ -1,0 +1,15 @@
+@import url(/node_modules/normalize.css/normalize.css);
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  color: #333;
+  font-family: Helvetica, sans-serif;
+  background: #f1f1f1; }
+
+.center {
+  text-align: center; }
+
