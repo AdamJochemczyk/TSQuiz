@@ -37,7 +37,7 @@ export const categoryGalleryElement =async (id:number,name:string)=>{
     node.appendChild(title);
     node.appendChild(total)
     node.appendChild(questionsByDifficulty(easyQuestions,mediumQuestions,hardQuestions));
-    const btn=document.createElement('a');
+    const btn=document.createElement('button');
     btn.textContent="Choose me!";
     btn.classList.add('gallery__cta');
     btn.addEventListener('click',e=>handleClick(e))

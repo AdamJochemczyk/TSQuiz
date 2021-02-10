@@ -53,6 +53,8 @@ body {
 .cta {
   padding: 10px 15px;
   border: solid 2px var(--secondary);
+  background-color: var(--primary);
+  color: var(--secondary);
   font-size: 1rem;
 }
 .gallery {
@@ -96,6 +98,8 @@ body {
     padding: 5px 10px;
     border: solid 2px var(--secondary);
     font-size: 1rem;
+    background-color: var(--primary);
+    color: var(--secondary);
     position: absolute;
     bottom: 10px;
     left: 90px;
@@ -117,28 +121,30 @@ body {
     border-radius: 3%;
     display: flex;
     flex-direction: column;
-    flex:1;
+    flex: 1;
     padding: 1rem;
   }
-  &--margin{
-    margin-top: .5rem;
+  &--margin {
+    margin-top: 0.5rem;
   }
-  &--bottom{
+  &--bottom {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-content: center;
     gap: 10px;
   }
-  &__answerBtn{
+  &__answerBtn {
     border: solid 1px var(--secondary);
     padding: 5px 10px;
-    &--clicked{
+    background-color: var(--primary);
+      color: var(--secondary);
+    &--clicked {
       background-color: var(--secondary);
       color: var(--primary);
     }
   }
-  &__finish{
+  &__finish {
     padding: 10px 15px;
     font-weight: 700;
     border: solid 1px var(--secondary);
@@ -146,26 +152,26 @@ body {
     background-color: var(--primary);
   }
 }
-.finalView{
+.finalView {
   display: grid;
   grid-auto-columns: 300px;
   justify-content: center;
   grid-gap: 10px;
   margin-bottom: 80px;
-  &__item{
+  &__item {
     text-align: center;
     padding: 10px;
     color: var(--secondary);
     background-color: var(--primary);
     border-radius: 2%;
   }
-  &__points{
+  &__points {
     text-align: center;
     color: var(--secondary);
     background-color: var(--primary);
     padding: 5px 10px;
   }
-  &__btn{
+  &__btn {
     padding: 10px 15px;
     color: var(--secondary);
     border: solid 1px var(--secondary);

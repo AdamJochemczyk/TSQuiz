@@ -5,6 +5,7 @@ const showCategoryGallery=async ()=>{
     const loader=document.createElement('p');
     loader.textContent="Loading...";
     loader.style.textAlign='center';
+    loader.style.color='white';
     document.body.appendChild(loader);
     const gallery= await generateCategoryGallery();
     document.body.appendChild(gallery);
@@ -12,10 +13,11 @@ const showCategoryGallery=async ()=>{
 }
 
 export const btnToCategoryGallery=()=>{
-   const btnToCategoryGallery=document.createElement('a');
+   const btnToCategoryGallery=document.createElement('button');
    btnToCategoryGallery.classList.add('cta')
-   btnToCategoryGallery.text="Choose category";
-   btnToCategoryGallery.addEventListener('click',()=>{
+   btnToCategoryGallery.textContent="Choose category";
+   btnToCategoryGallery.addEventListener('click',e=>{
+       e.preventDefault();
        showCategoryGallery()
    })
 
