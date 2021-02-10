@@ -10,9 +10,10 @@ export type quizQuestion={
     questionType: string
 }
 
-export const quizAnswerBlock = (question:quizQuestion)=>{
+export const quizAnswerBlock = (question:quizQuestion,id:number)=>{
     const node=document.createElement('div')
     node.classList.add('duringGame__item')
+    node.dataset.id=id.toString();
     const title=document.createElement('h3')
     title.textContent=question.category;
     node.appendChild(title);

@@ -146,6 +146,32 @@ body {
     background-color: var(--primary);
   }
 }
+.finalView{
+  display: grid;
+  grid-auto-columns: 300px;
+  justify-content: center;
+  grid-gap: 10px;
+  margin-bottom: 80px;
+  &__item{
+    text-align: center;
+    padding: 10px;
+    color: var(--secondary);
+    background-color: var(--primary);
+    border-radius: 2%;
+  }
+  &__points{
+    text-align: center;
+    color: var(--secondary);
+    background-color: var(--primary);
+    padding: 5px 10px;
+  }
+  &__btn{
+    padding: 10px 15px;
+    color: var(--secondary);
+    border: solid 1px var(--secondary);
+    background-color: var(--primary);
+  }
+}
 
 .footer {
   font-size: 1rem;

@@ -17,7 +17,11 @@ export const duringGame = (questions:AxiosResponse)=>{
     const randomQuestions:Object[]=Object(questions)
     const node=document.createElement('div')
     node.classList.add('duringGame')
-    randomQuestions.map(el=>node.appendChild(quizAnswerBlock(processQuestionData(el))));
+    let index=1;
+    randomQuestions.map(el=>{
+        node.appendChild(quizAnswerBlock(processQuestionData(el),index))
+        index++;
+    });
     node.appendChild(finishQuizBtn());
     document.body.appendChild(node);
 }

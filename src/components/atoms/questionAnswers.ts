@@ -3,15 +3,15 @@ const removeMark=(parent:ParentNode)=>{
     elements.map(el=>el.classList.remove('duringGame__answerBtn--clicked'))
 }
 
-const markCorrectAnswer=(element:HTMLAnchorElement)=>{
-    const parent=element.parentNode;
-    removeMark(parent)
+const markAnswer=(element:HTMLAnchorElement)=>{
     element.classList.add('duringGame__answerBtn--clicked')
 }
 
 const playerAnswer=(e:MouseEvent)=>{
     const target=e.target as HTMLAnchorElement
-    markCorrectAnswer(target);
+    const parent=target.parentNode;
+    removeMark(parent)
+    markAnswer(target);
 }
 
 export const questionAnswers=(correct:string,incorrect:string[],type:string)=>{

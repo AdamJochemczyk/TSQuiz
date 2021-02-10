@@ -3,6 +3,7 @@ import {startGame} from '../../scripts/startGame';
 const setQuizParams=()=>{
     sessionStorage.setItem("quizDifficulty",(<HTMLInputElement>document.querySelector("select[name='difficulty']")).value)
     sessionStorage.setItem("quizType",(<HTMLInputElement>document.querySelector("select[name='type']")).value);
+    sessionStorage.setItem("points","0")
 }
 
 export const submitFormBtn = ()=>{
