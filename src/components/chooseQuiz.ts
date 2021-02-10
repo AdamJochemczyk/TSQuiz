@@ -5,6 +5,8 @@ import {btnToCategoryGallery} from './atoms/btnToCategoryGallery'
 import {submitFormBtn} from './atoms/submitFormBtn';
 
 export const StartQuizForm =()=>{
+    const container=document.createElement('div')
+    container.classList.add('container')
     const node = document.createElement('form');
     node.classList.add('startQuizForm')
     const title=document.createElement('h2')
@@ -14,6 +16,6 @@ export const StartQuizForm =()=>{
    node.appendChild(chooseDifficulty(questionDifficulty));
    node.appendChild(chooseQuestionType(questionType));
    node.appendChild(submitFormBtn());
-
-    return node;
+    container.appendChild(node)
+    return container;
 }
