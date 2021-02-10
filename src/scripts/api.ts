@@ -49,7 +49,7 @@ export class QuestionApi{
         let token="0";
         token=await axios.get("https://opentdb.com/api_token.php?command=request")
         .then((response:AxiosResponse)=>response.data.token)
-        .catch(error=>console.log(error))
+        .catch(error=>alert("Something went wrong try again later"+error))
         return token;
     }
     async setSessionToken(){
@@ -69,21 +69,21 @@ export class QuestionApi{
     async getAllCategories(){
         const response:AxiosResponse=await axios.get("https://opentdb.com/api_category.php")
         .then((response:AxiosResponse)=>response.data.trivia_categories)
-        .catch(error=>console.log(error))
+        .catch(error=>alert("Something went wrong try again later"+error))
         return response;
     }
 
     async getAllQuestionsData(){
         const response:AxiosResponse= await axios.get("https://opentdb.com/api_count_global.php")
         .then((response:AxiosResponse)=>response.data)
-        .catch(error=>console.log(error))
+        .catch(error=>alert("Something went wrong try again later"+error))
         return response;
     }
 
     async getQuestionForCategory(id:number){
         const response:AxiosResponse= await axios.get(`https://opentdb.com/api_count.php?category=${id}`)
         .then((response:AxiosResponse)=>response.data.category_question_count)
-        .catch(error=>console.log(error))
+        .catch(error=>alert("Something went wrong try again later"+error))
         return response;
     }
 
@@ -100,7 +100,8 @@ export class QuestionApi{
     }
     async getQuizQuestions(){
         const response=await axios.get(this.constructRequestString())
-        .then((response:AxiosResponse)=>response.data.results).catch(error=>console.log(error))
+        .then((response:AxiosResponse)=>response.data.results)
+        .catch(error=>alert("Something went wrong try again later"+error))
         return response;
     }
 }

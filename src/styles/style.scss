@@ -13,8 +13,12 @@ body {
   }
   margin-bottom: 2rem;
 }
+.container{
+  display: flex;
+  justify-content: center;
+}
 .startQuizForm {
-  margin: 2%;
+  margin: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,11 +64,12 @@ body {
 .gallery {
   display: grid;
   margin: 2%;
-  grid-auto-columns: 300px;
+  grid-template-columns: 300px;
   grid-auto-rows: 300px;
   grid-gap: 1rem;
   font-weight: 700;
   justify-content: center;
+  margin-bottom: 100px;
   &__item {
     padding: 2%;
     text-align: center;
@@ -108,7 +113,7 @@ body {
 
 .duringGame {
   display: grid;
-  grid-auto-columns: 300px;
+  grid-template-columns: 300px;
   justify-content: center;
   text-align: center;
   font-weight: 700;
@@ -154,7 +159,7 @@ body {
 }
 .finalView {
   display: grid;
-  grid-auto-columns: 300px;
+  grid-template-columns: 300px;
   justify-content: center;
   grid-gap: 10px;
   margin-bottom: 80px;
@@ -189,4 +194,85 @@ body {
   color: var(--secondary);
   width: 100%;
   z-index: 1;
+}
+
+@media (min-width: 768px){
+  .header{
+    h1{
+      font-size: 1.5rem;
+    }
+  }
+  .startQuizForm{
+    gap: 15px;
+    width: 450px;
+    h2{
+      font-size: 1.5rem;
+    }
+    .formRow{
+      width: 400px;
+      font-size: 1.5rem;
+      select{
+        padding: 5px 8px;
+      }
+    }
+    input[type="submit"] {
+    font-size: 1.5rem;
+  }
+  }
+  .cta{
+    font-size: 1.5rem;
+  }
+  .gallery{
+    grid-template-columns: 300px 300px;
+    grid-gap: 1.5rem;
+    &__total{
+      font-size: 1.5rem;
+    }
+    &__cta{
+      font-size: 1.5rem;
+      left: 75px;
+    }
+  }
+  .duringGame{
+    grid-template-columns: 500px;
+    font-size: 1.5rem;
+    &__answerBtn {
+      font-size: 1.5rem;
+    }
+    &__finish{
+      font-size: 1.5rem;
+    }
+  }
+  .finalView{
+    grid-template-columns: 500px;
+    font-size: 1.5rem;
+    &__btn{
+      font-size: 1.5rem;
+    }
+  }
+  .footer{
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1280px){
+  .startQuizForm{
+    gap: 15px;
+    width: 600px;
+    .formRow{
+      width: 500px;
+    }
+  }
+  .gallery{
+    grid-template-columns: 300px 300px 300px 300px;
+    &__cta{
+      font-size: 1.5rem;
+      left: 75px;
+    }
+  }
+  .duringGame{
+    grid-template-columns: 500px;
+  }
+  .finalView{
+    grid-template-columns: 500px;
+  }
 }
