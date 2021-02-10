@@ -1,4 +1,6 @@
 import { QuestionApi,questionDifficulty,questionType } from "./api";
+import {AxiosResponse} from "axios";
+import {duringGame} from "../components/duringGame";
 
 const getCategory=()=>{
     return sessionStorage.getItem('categoryId')===null ? 0 : parseInt(sessionStorage.getItem('categoryId'));
@@ -30,9 +32,8 @@ export const startGame =async ()=>{
     const categoryId=getCategory();
     const difficulty:questionDifficulty=getDifficulty();
     const type:questionType=getType();
-
     const api=new QuestionApi(5,categoryId,difficulty,type)
     await api.setSessionToken();
-    const questions=await api.getQuizQuestions();
-    console.log(questions)
+    const questions:AxiosResponse=await api.getQuizQuestions();
+    duringGame(questions)
 }

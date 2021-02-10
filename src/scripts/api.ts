@@ -96,7 +96,6 @@ export class QuestionApi{
             request+=`&type=${this.type}`
         if(this.token!=="0" && this.token!==undefined)
         request+=`&token=${this.token}`
-        console.log(request)
         return request;
     }
     async getQuizQuestions(){
