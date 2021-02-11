@@ -19,6 +19,9 @@ const handleClick=(e:MouseEvent)=>{
     const target=e.target as HTMLElement;
     const parent=target.parentNode;
     const id=parent.querySelector('h2').dataset.id;
+    const categoryName=parent.querySelector('h2').textContent;
+    const currentCategory=document.querySelector('#currentCategory')
+    currentCategory.textContent=`Current category: ${categoryName}`;
     sessionStorage.setItem('categoryId',id);
     (<HTMLElement>document.querySelector('.startQuizForm')).style.display='flex';
     document.body.removeChild(document.querySelector('.gallery'))

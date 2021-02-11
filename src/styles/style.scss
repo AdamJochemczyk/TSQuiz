@@ -33,6 +33,10 @@ body {
     margin-bottom: 1.5rem;
     font-size: 1rem;
   }
+  #currentCategory{
+    font-size: 1rem;
+    text-align: center;
+  }
   .formRow {
     width: 200px;
     display: flex;
@@ -208,6 +212,9 @@ body {
     h2{
       font-size: 1.5rem;
     }
+    #currentCategory{
+    font-size: 1.5rem;
+  }
     .formRow{
       width: 400px;
       font-size: 1.5rem;
