@@ -46,6 +46,9 @@ body {
   .startQuizForm h2 {
     margin-bottom: 1.5rem;
     font-size: 1rem; }
+  .startQuizForm #currentCategory {
+    font-size: 1rem;
+    text-align: center; }
   .startQuizForm .formRow {
     width: 200px;
     display: flex;
@@ -193,6 +196,8 @@ body {
     gap: 15px;
     width: 450px; }
     .startQuizForm h2 {
+      font-size: 1.5rem; }
+    .startQuizForm #currentCategory {
       font-size: 1.5rem; }
     .startQuizForm .formRow {
       width: 400px;
