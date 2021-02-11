@@ -13,6 +13,10 @@ export const StartQuizForm =()=>{
     title.textContent="Choose quiz parameters";
     node.appendChild(title)
    node.appendChild(btnToCategoryGallery());
+    const currentCategory=document.createElement('p')
+    currentCategory.id="currentCategory"
+    currentCategory.textContent=`Current category: all`
+    node.appendChild(currentCategory)
    node.appendChild(chooseDifficulty(questionDifficulty));
    node.appendChild(chooseQuestionType(questionType));
    node.appendChild(submitFormBtn());
